@@ -1,0 +1,120 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>统计</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<!-- <view class='quxiang' style="margin-bottom:15rpx;">
+  <view class='bann'>
+    <view class='namess'>
+      <view class='detail'>第一学年</view>
+      <view>
+        <image src="../../../images/xl.png"></image>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+
+<view class='quxiang'>
+  <view class='bann'>
+    <view class='names'>
+      <view class='detail'>19</view>
+      <view>
+        <image src="../../../images/xl.png"></image>
+      </view>
+    </view>
+    <text>年级</text>
+  </view>
+  <view class='bann'>
+    <view class='names'>
+      <view class='detail'>阿阿斯</view>
+      <view>
+        <image src="../../../images/xl.png"></image>
+      </view>
+    </view>
+    <text>专业</text>
+  </view>
+  <view class='bann'>
+    <view class='names'>
+      <view class='detail'>123</view>
+      <view>
+        <image src="../../../images/xl.png"></image>
+      </view>
+    </view>
+    <text>班级</text>
+  </view>
+</view>
+
+<view class='tops'>
+  <view class="duan">
+    <text class='num'>10</text>
+  </view>
+  <view class="duan">
+    <text class='num'>20</text>
+  </view>
+  <view class="duan">
+    <text class='num'>30</text>
+  </view>
+  <view class="duan">
+    <text class='num'>40</text>
+  </view>
+  <view class="duan">
+    <text class='num'>50</text>
+  </view>
+  <view class="duan">
+    <text class='num'>60</text>
+  </view>
+  <view class="duan">
+    <text class='num'>70</text>
+  </view>
+  <view class="duan">
+    <text class='num'>80</text>
+  </view>
+  <view class="duan">
+    <text class='num'>90</text>
+  </view>
+  <view class="duan">
+    <text class='num'>100</text>
+  </view>
+  <view class="qjrs">请假人数(/人)</view>
+</view>
+
+<view class='content'>
+  <view class="names1" >
+    <text style="margin-top:60rpx;">计算机学院</text>
+    <text>计算机学院</text>
+    <text>计算机学院</text>
+    <text>计算机学院</text>
+    <text>计算机学院</text>
+    <text>计算机学院</text>
+  </view>
+  <view class="shuju">
+    <view class="li" style="width:50%;margin-top:60rpx;">
+      <view class="ren">10人</view>
+    </view>
+    <view class="li" style="width:60%;">
+      <view class="ren">10人</view>
+    </view>
+    <view class="li" style="width:70%;">
+      <view class="ren">10人</view>
+    </view>
+    <view class="li" style="width:80%;">
+      <view class="ren">10人</view>
+    </view>
+    <view class="li" style="width:30%;">
+      <view class="ren">10人</view>
+    </view>
+    <view class="li" style="width:100%;">
+      <view class="ren">10人</view>
+    </view>
+  </view>
+
+</view>

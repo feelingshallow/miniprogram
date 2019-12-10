@@ -1,0 +1,35 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>查看假条</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<view class="con">
+  <view class='content'>
+    <image src="../../../images/uploadImg.png"></image>
+  </view>
+</view>
+
+<view class='btn'>立即下载
+  <text>(PDF文件)</text>
+</view>
+
+
+<view class='mb' style="display:{{mbShow}}"></view>
+<view class='l' style='top:{{loginTop + height}}px;display:{{tishishow}}'>
+  <view class='tis'>
+    <view class='qdcg'>假条已下载</view>
+    <image class='cgimg' src='../../../images/qdsb.png'>
+    </image>
+  </view>
+  <view class='ok2'>
+    <text>确定</text>
+  </view>
+</view>

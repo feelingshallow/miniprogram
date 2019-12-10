@@ -1,0 +1,282 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>个人信息</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+
+<!-- 学生 -->
+<block wx:if="{{ifEdit1}}">
+  <block wx:if="{{memberInfo.userType==0}}">
+    <view class='content' style="margin-top:20px;">
+      <view class='detail'>
+        <view class='classes flex'>
+          <view class='point'></view>
+          <view class='na'>姓名:</view>
+          <input class='inpu' value="{{name}}" bindinput="name"></input>
+        </view>
+        <view class='zhoushu flex'>
+          <view class='point'></view>
+          <view class='na'>性别:</view>
+          <!-- <input class='inpu2' value="{{sex}}" bindinput="sex"></input> -->
+          <picker bindchange="bindPickerChange" value="{{sexIndex}}" range="{{sexList}}" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{sexList[sexIndex]}}
+            </view>
+          </picker>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>学号:</view>
+          <view style="margin-left:20rpx;">{{memberInfo.no}}</view>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>学院:</view>
+          <!-- <input class='inpu2' value="{{college}}" bindinput="college"></input> -->
+          <picker bindchange="bindPickerChange1" mode="selector" value="{{collegeIndex}}" range="{{collegeList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{collegeList[collegeIndex].name}}
+            </view>
+          </picker>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>专业:</view>
+          <!-- <input class='inpu2' value="{{major}}" bindinput="major"></input> -->
+          <picker bindchange="bindPickerChange2" value="{{majorIndex}}" range="{{majorList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{majorList[majorIndex].name}}
+            </view>
+          </picker>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>年级:</view>
+          <input class='inpu2' value="{{grade}}" bindinput="grade"></input>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>班级:</view>
+          <!-- <input class='inpu2' value="{{classs}}" bindinput="classs"></input> -->
+          <picker bindchange="bindPickerChange3" value="{{classIndex}}" range="{{classList}}" range-key="no" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{classList[classIndex].no}}
+            </view>
+          </picker>
+        </view>
+        <view class='teacher flex'>
+          <view class='point'></view>
+          <view class='na'>联系方式:</view>
+          <input class='inpu2' value="{{phone}}" bindinput="phone"></input>
+        </view>
+      </view>
+      <view class='edit' bindtap="ok1">
+        <image class='btn' src="../../../images/queding.png"></image>
+        <text>确定</text>
+      </view>
+    </view>
+  </block>
+</block>
+<block wx:else>
+  <block wx:if="{{memberInfo.userType==0}}">
+    <view class='content' style="margin-top:20px;">
+      <view class='detail'>
+        <view class='classes flex'>
+          <view class='point'></view>
+          <view class='na'>姓名:</view>
+          <view class='inpu'>{{name}}</view>
+        </view>
+        <view class='zhoushu flex'>
+          <view class='point'></view>
+          <view class='na'>性别:</view>
+          <view class='inpu2' wx:if="{{sex==0}}">女</view>
+          <view class='inpu2' wx:else>男</view>
+          <!-- <picker bindchange="bindPickerChange" value="{{sexIndex}}" range="{{sexList}}" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{sexList[sexIndex]}}
+            </view>
+          </picker> -->
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>学号:</view>
+          <view style="margin-left:20rpx;">{{memberInfo.no}}</view>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>学院:</view>
+          <view class='inpu2'>{{college}}</view>
+          <!-- <picker bindchange="bindPickerChange1" mode="selector" value="{{collegeIndex}}" range="{{collegeList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{collegeList[collegeIndex].name}}
+            </view>
+          </picker> -->
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>专业:</view>
+          <view class='inpu2'>{{major}}</view>
+          <!-- <picker bindchange="bindPickerChange2" value="{{majorIndex}}" range="{{majorList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{majorList[majorIndex].name}}
+            </view>
+          </picker> -->
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>年级:</view>
+          <view class='inpu2'>{{grade}}</view>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>班级:</view>
+          <view class='inpu2'>{{classs}}</view>
+          <!-- <picker bindchange="bindPickerChange3" value="{{classIndex}}" range="{{classList}}" range-key="no" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{classList[classIndex].no}}
+            </view>
+          </picker> -->
+        </view>
+        <view class='teacher flex'>
+          <view class='point'></view>
+          <view class='na'>联系方式:</view>
+          <view class='inpu2'>{{phone}}</view>
+        </view>
+      </view>
+      <view class='edit' bindtap="edit1">
+        <image class='btn' src="../../../images/bianji.png"></image>
+        <text>编辑</text>
+      </view>
+    </view>
+  </block>
+</block>
+
+
+
+<!-- 老师 -->
+<block wx:if="{{ifEdit2}}">
+  <block wx:if="{{memberInfo.userType==1}}">
+    <view class='content' style="margin-top:20px;">
+      <view class='detail'>
+        <view class='classes flex'>
+          <view class='point'></view>
+          <view class='na'>姓名:</view>
+          <input class='inpu' value="{{name}}" bindinput="name"></input>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>工号:</view>
+          <view style="margin-left:20rpx;">{{memberInfo.no}}</view>
+        </view>
+        <view class='zhoushu flex'>
+          <view class='point'></view>
+          <view class='na'>性别:</view>
+          <!-- <view style="margin-left:20rpx;">{{memberInfo.sex}}</view> -->
+          <picker bindchange="bindPickerChange" value="{{sexIndex}}" range="{{sexList}}" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{sexList[sexIndex]}}
+            </view>
+          </picker>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>学院:</view>
+          <!-- <view style="margin-left:20rpx;">{{memberInfo.college.name}}</view> -->
+          <picker bindchange="bindPickerChange1" mode="selector" value="{{collegeIndex}}" range="{{collegeList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{collegeList[collegeIndex].name}}
+            </view>
+          </picker>
+        </view>
+        <!-- <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>专业:</view>
+          <!-- <view style="margin-left:20rpx;">{{memberInfo.majorName}}</view> 
+          <picker bindchange="bindPickerChange2" value="{{majorIndex}}" range="{{majorList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{majorList[majorIndex].name}}
+            </view>
+          </picker>
+        </view> -->
+        <view class='teacher flex'>
+          <view class='point'></view>
+          <view class='na'>联系方式:</view>
+          <input class='inpu2' value="{{phone}}" bindinput="phone"></input>
+        </view>
+        <view class='edit' bindtap="ok2">
+          <image class='btn' src="../../../images/queding.png"></image>
+          <text>确定</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+<block wx:else>
+  <block wx:if="{{memberInfo.userType==1}}">
+    <view class='content' style="margin-top:20px;">
+      <view class='detail'>
+        <view class='classes flex'>
+          <view class='point'></view>
+          <view class='na'>姓名:</view>
+          <view class='inpu' bindinput="name">{{name}}</view>
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>工号:</view>
+          <view style="margin-left:20rpx;">{{memberInfo.no}}</view>
+        </view>
+        <view class='zhoushu flex'>
+          <view class='point'></view>
+          <view class='na'>性别:</view>
+          <view style="margin-left:20rpx;" wx:if="{{memberInfo.sex==0}}">女</view>
+          <view style="margin-left:20rpx;" wx:if="{{memberInfo.sex==1}}">男</view>
+          <!-- <picker bindchange="bindPickerChange" value="{{sexIndex}}" range="{{sexList}}" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{sexList[sexIndex]}}
+            </view>
+          </picker> -->
+        </view>
+        <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>学院:</view>
+          <view style="margin-left:20rpx;">{{memberInfo.colleges.name?memberInfo.colleges.name:''}}</view>
+          <!-- <picker bindchange="bindPickerChange1" mode="selector" value="{{collegeIndex}}" range="{{collegeList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{collegeList[collegeIndex].name}}
+            </view>
+          </picker> -->
+        </view>
+        <!-- <view class='jieshu flex'>
+          <view class='point'></view>
+          <view class='na'>专业:</view>
+          <view style="margin-left:20rpx;">{{memberInfo.major?memberInfo.major:''}}</view>
+          <!-- <picker bindchange="bindPickerChange2" value="{{majorIndex}}" range="{{majorList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{majorList[majorIndex].name}}
+            </view>
+          </picker> 
+        </view> -->
+        <view class='teacher flex'>
+          <view class='point'></view>
+          <view class='na'>联系方式:</view>
+          <view class='inpu2' bindinput="phone">{{phone}}</view>
+        </view>
+        <view class='edit' bindtap="edit2">
+          <image class='btn' src="../../../images/bianji.png"></image>
+          <text>编辑</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+
+
+<view class='mb' style="display:{{mbShow}};z-index:999;"></view>

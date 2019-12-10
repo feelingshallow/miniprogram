@@ -1,0 +1,74 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>智能课表</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<view class="con">
+  <view class='content'>
+    <block wx:for="{{detail.dataTime}}">
+      <view class="day active" wx:if="{{item.isDay == 1}}">
+        <view class='hNum'>{{item.weeks}}</view>
+        <view class='num'>{{item.dateTime}}</view>
+      </view>
+      <view class="day " wx:else>
+        <view class='hNum'>{{item.weeks}}</view>
+        <view class='num'>{{item.dateTime}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="detail">
+    <block wx:for="{{detail.data}}">
+      <view class='shu' wx:if="{{index==4}}" style="border-right:0px;">
+        <block wx:for="{{item}}">
+          <block wx:if="{{index==1 || index==3}}">
+            <scroll-view scroll-y="true" class='txt' style="background-color:{{item.colors}}"  wx:if="{{item.name}}">
+              <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+            <scroll-view scroll-y="true" class='txt2' style="background-color:{{item.colors}}"  wx:else>
+              <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+            <view class="line"></view>
+          </block>
+          <block wx:else>
+            <scroll-view scroll-y="true" class='txt' style="background-color:{{item.colors}}"  wx:if="{{item.name}}">
+             <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+            <scroll-view scroll-y="true" class='txt2' style="background-color:{{item.colors}}"  wx:else>
+              <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+          </block>
+        </block>
+      </view>
+      <view class='shu' wx:if="{{index!=4}}">
+        <block wx:for="{{item}}">
+          <block wx:if="{{index==1 || index==3}}">
+            <scroll-view scroll-y="true" class='txt' style="background-color:{{item.colors}}" wx:if="{{item.name}}">
+              <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+            <scroll-view scroll-y="true" class='txt2' style="background-color:{{item.colors}}"  wx:else>
+              <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+            <view class="line"></view>
+          </block>
+          <block wx:else>
+            <scroll-view scroll-y="true" class='txt' style="background-color:{{item.colors}}"  wx:if="{{item.name}}">
+             <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+            <scroll-view scroll-y="true" class='txt2' style="background-color:{{item.colors}}"  wx:else>
+              <view class="cont" bindtap='toDetail' data-id='{{item.id}}'>{{item.name}}      <text>教室: {{item.courseSch.classroomId}}</text> </view>
+            </scroll-view>
+          </block>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

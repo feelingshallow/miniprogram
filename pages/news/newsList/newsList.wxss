@@ -1,0 +1,96 @@
+page{background:rgba(252,252,252,1);}
+
+
+.tui-header-box {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  background-color: rgba(252, 252, 252, 1);
+}
+
+.tui-header {
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 18px;
+  font-weight: bold;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  position: relative;
+}
+
+.tui-header .bb {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+text-align: center;
+}
+
+.tui-header .bb .name {
+  width:100%;
+font-size:24px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(55,52,71,1);
+letter-spacing:1px;
+white-space: nowrap;
+}
+
+.tui-header .back {
+  position: absolute;
+  width: 14px;
+  height: 23px;
+  margin-left:35rpx;
+}
+
+ .content{width:90%;display: flex;flex-direction: row;justify-content: flex-start;align-items: center;
+margin-left:5%;margin-bottom: 30rpx;}
+
+.content image{width: 140px;height: 105px;background:rgba(216,216,216,1);
+box-shadow:0px 10px 12px -10px rgba(0,0,0,0.5);
+border-radius:8px;}
+
+.content .right{width: 55%;display: flex;align-items: center;flex-direction: column;margin-left: 20rpx;}
+
+.right .title{width: 100%;overflow: hidden;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;text-overflow:ellipsis; height:25px;margin-bottom: 10rpx;
+font-size:18px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(0,0,0,0.8);
+line-height:25px;}
+
+.right .mid{
+  width: 100%;display: flex;flex-direction: row;justify-content: space-between;align-items: center;white-space: nowrap;flex-flow: nowrap;margin-bottom: 35rpx;
+}
+
+.mid .time{height:14px;
+font-size:10px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(0,0,0,0.8);
+line-height:14px;}
+
+.mid .author{
+  height:14px;
+font-size:10px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(0,0,0,0.8);
+line-height:14px;
+}
+
+
+.right .bottom{width: 100%;
+  height:34px;
+font-size:12px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(0,0,0,0.8);
+line-height:17px;
+letter-spacing:1px;overflow: hidden;display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical;text-overflow:ellipsis; 
+}

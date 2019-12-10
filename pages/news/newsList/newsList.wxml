@@ -1,0 +1,27 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>小北头条</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<block wx:for="{{list}}">
+
+  <view class='content' style="margin-top:20px;" bindtap="toDetail" data-id="{{item.id}}">
+    <image mode="scaleToFill" src="{{imgUrl + item.image}}"></image>
+    <view class="right">
+      <view class="title">{{item.title}}</view>
+      <view class="mid">
+        <view class="time">{{item.publishDate}}</view>
+        <view class="author">{{item.author}}</view>
+      </view>
+      <view class="bottom">{{item.description}}</view>
+    </view>
+  </view>
+</block>

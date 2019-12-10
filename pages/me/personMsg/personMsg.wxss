@@ -1,0 +1,105 @@
+page{background:rgba(252,252,252,1);}
+
+
+.tui-header-box {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  background-color: rgba(252, 252, 252, 1);
+}
+
+.tui-header {
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 18px;
+  font-weight: bold;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  position: relative;
+}
+
+.tui-header .bb {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+text-align: center;
+}
+
+.tui-header .bb .name {
+  width:100%;
+font-size:24px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(55,52,71,1);
+letter-spacing:1px;
+white-space: nowrap;
+}
+
+.tui-header .back {
+  position: absolute;
+  width: 14px;
+  height: 23px;
+  margin-left:35rpx;
+}
+
+ .content{width:90%;position: relative;
+margin-left:5%;
+background:rgba(255,255,255,1);
+box-shadow:0px 8px 21px -1px rgba(125,168,239,0.3);
+border-radius:20px;}
+
+.content .edit{width:54px;height:43px;display: flex;justify-content: center;align-items: center;
+  position: absolute;top:0;right:30px;}
+
+  .edit .btn{width:54px;height:43px;position: relative;}
+
+  .edit text{width:24px;position: absolute;top:13rpx;
+height:16px;
+font-size:11px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:rgba(255,255,255,1);
+line-height:16px;
+letter-spacing:1px;}
+
+.content .title{width:90%;padding-top: 50rpx;margin-left: 5%;
+height:60px;
+font-size:22px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:#9C9C9C;
+line-height:30px;}
+
+.content .detail{width: 90%;margin-left: 5%;display: flex;flex-direction: column;align-items: center;padding-top: 30rpx;padding-bottom: 30rpx;}
+.detail .point{width:4px;
+height:4px;
+background:rgba(98,154,253,1);margin-right: 12rpx;}
+
+.detail .flex{display: flex;flex-direction: row;justify-content: flex-start;align-items: center;margin-top:25rpx;
+font-size:16px;
+font-family:PingFangSC-Semibold,PingFang SC;
+font-weight:600;
+color:#9C9C9C;
+line-height:22px;width: 100%;margin-bottom: 25rpx;}
+
+.detail .na{white-space: nowrap;}
+
+.detail .inpu{display:inline-block;line-height:25px;
+margin-left:20rpx;font-size:22px;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;}
+
+.detail .inpu2{
+margin-left:20rpx;}
+
+.picker{width: 100%;}
+
+
+
+.mb{width:100%;position: fixed;top: 0;z-index: 999;
+height:100%;
+background:rgba(0,0,0,0.5);}

@@ -1,0 +1,41 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>课程内容</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+
+<view class='content' style="margin-top:20px;">
+  <view class='title'>{{course.name}}</view>
+  <view class='detail'>
+    <view class='classes flex'>
+      <view class='point'></view>
+      <view class='na'>教室:</view>
+      <view>{{course.classroom}}</view>
+    </view>
+    <view class='zhoushu flex'>
+      <view class='point'></view>
+      <view class='na'>周数:</view>
+      <view>{{course.weekNums}}</view>
+    </view>
+    <view class='jieshu flex'>
+      <view class='point'></view>
+      <view class='na'>节数:</view>
+      <view>{{course.sections}}</view>
+    </view>
+    <view class='teacher flex'>
+      <view class='point'></view>
+      <view class='na'>教师:</view>
+      <view>{{course.teacher}}</view>
+    </view>
+  </view>
+  <image src="../../../images/zhang.png" style="left:{{windowWidth*0.9-152}}px;"></image>
+</view>
+

@@ -1,0 +1,239 @@
+<view style="overflow:{{overflowy}}">
+  <view class="header" style="height:{{height}}px;">
+    <!--header-->
+    <view class="tui-header-box" style="height:{{height}}px;">
+      <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+
+      </view>
+    </view>
+    <!--header-->
+  </view>
+  <view class="title">
+    <view class="left">
+      <image class='logo' src="../../images/logoo.png"></image>
+      <view class='name'>智能小北</view>
+    </view>
+    <image class='avatar' src="{{memberInfo.photo?memberInfo.photo:'../../images/logo.png'}}" bindtap="center"></image>
+  </view>
+
+  <view class="slider">
+    <swiper previous-margin='70rpx' next-margin='70rpx' bindchange="sliderSwiperChange" style='' indicator-dots='true' indicator-color='#D6D6D6' indicator-active-color='#9FC7FF' circular autoplay interval="2000">
+      <swiper-item wx:for='{{ bannerlist }}' wx:key=''>
+        <image class='le-img {{ sliderIndex == index?"le-active":""}}' bindload='getHeight' src='{{imgUrl + item}}' style=''></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view style="display:{{kbshow}}">
+    <view class='znkb'>
+      <view class='name'>智能课表</view>
+      <view class="other">
+        <text>{{str}}</text>
+      </view>
+    </view>
+
+    <scroll-view scroll-y="true" style="" class='scro'>
+      <!-- <view class="teachers_banner" bindtap="kb"> -->
+      <!-- <view class="teachers_b"> -->
+      <!-- <view></view> -->
+      <!-- <view class="slides" id="slides" bindtouchstart='moveStart' bindtouchend='moveItem'> -->
+      <view bindtouchstart='moveStart' bindtouchend='moveItem' class='ul'>
+        <block wx:for="{{datas}}">
+          <view class='li' animation="{{item.animation}}" style="z-index: {{item.zIndex}} ;opacity:{{item.opacity}};" bindtap="choose" data-id="{{item.id}}">
+            <view style="position:relative;width:100%;height:100%;">
+              <image class='img' src="{{imgUrl + item.imagePath}}"></image>
+              <view class='kc'>
+                <view class='left'>
+                  <view class="top">{{item.name}}</view>
+                  <view class="bottom">
+                    <image src="../../images/position.png" class='imgs'></image>
+                    <view class='vi'>{{item.courseSch.classroomId}} 讲师:{{item.teacher.name}}</view>
+                  </view>
+                </view>
+                <view class='right'>
+                  <text>{{item.courseSch.sections}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <!-- </view> -->
+      <!-- </view> -->
+      <!-- </view> -->
+    </scroll-view>
+  </view>
+
+  <view class='toutiao'>
+    <view class='name'>小北头条</view>
+    <view class='right' bindtap="more">
+      <text class='more'>更多</text>
+      <image src="../../images/gd2.png" />
+    </view>
+  </view>
+  <view class="toutiao1">
+    <view class='news' bindtap="toDetail" data-id="{{article[0].id}}">
+      <view class='img'>
+        <image mode='aspectFill' src="{{imgUrl + article[0].image}}"></image>
+      </view>
+      <view class='title'>
+        <view class='top'>{{article[0].title}}</view>
+        <view class='bottom'>
+          <view class='time'>{{article[0].publishDate}}</view>
+          <view class='name'>{{article[0].author}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='news' bindtap="toDetail" data-id="{{article[1].id}}">
+      <view class='img'>
+        <image mode='aspectFill' src="{{imgUrl + article[1].image}}"></image>
+      </view>
+      <view class='title'>
+        <view class='top'>{{article[1].title}}</view>
+        <view class='bottom'>
+          <view class='time'>{{article[1].publishDate}}</view>
+          <view class='name'>{{article[1].author}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bigNew' bindtap="toDetail" data-id="{{article[2].id}}">
+    <image mode='aspectFill' src="{{imgUrl + article[2].image}}" />
+    <view class='title'>
+      <view class='top'>{{article[2].title}}</view>
+      <view class='bottom'>
+        <view class='time'>{{article[2].publishDate}}</view>
+        <view class='name'>{{article[2].author}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="toutiao1">
+    <view class='news' bindtap="toDetail" data-id="{{article[3].id}}">
+      <view class='img'>
+        <image mode='aspectFill' src="{{imgUrl + article[3].image}}"></image>
+      </view>
+      <view class='title'>
+        <view class='top'>{{article[3].title}}</view>
+        <view class='bottom'>
+          <view class='time'>{{article[3].publishDate}}</view>
+          <view class='name'>{{article[3].author}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='news' bindtap="toDetail" data-id="{{article[4].id}}">
+      <view class='img'>
+        <image mode='aspectFill' src="{{imgUrl + article[4].image}}"></image>
+      </view>
+      <view class='title'>
+        <view class='top'>{{article[4].title}}</view>
+        <view class='bottom'>
+          <view class='time'>{{article[4].publishDate}}</view>
+          <view class='name'>{{article[4].author}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bigNew' bindtap="toDetail" data-id="{{article[5].id}}">
+    <image mode='aspectFill' src="{{imgUrl + article[5].image}}" />
+    <view class='title'>
+      <view class='top'>{{article[5].title}}</view>
+      <view class='bottom'>
+        <view class='time'>{{article[5].publishDate}}</view>
+        <view class='name'>{{article[5].author}}</view>
+      </view>
+    </view>
+  </view>
+  <view style="height:120rpx;"></view>
+  <block wx:if="{{memberInfo.userType==1}}">
+    <view class='btn'>
+      <view class='left' bindtap="jtsh">
+        <text class='txt'>假条审核</text>
+      </view>
+      <view class='right' bindtap="fqqd">
+        <text class='txt'>发起签到</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='btn'>
+      <block wx:if="{{leaveStatus==1}}">
+        <view class='left' bindtap="shz">
+          <text class='txt' style="display:flex;justify-content:center;">审核中</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='left' bindtap="znqj">
+          <text class='txt'>智能请假</text>
+        </view>
+      </block>
+      <view class='right' bindtap="qiandao">
+        <text class='txt'> 一键签到</text>
+      </view>
+    </view>
+  </block>
+
+
+  <view class='mb' style="display:{{mbShow}}"></view>
+
+  <view class='l' style='top:{{loginTop}}px;display:{{loginShow}}'>
+    <view class='login'>
+      <image src="../../images/loginLogo.png"></image>
+      <view class='shuru'>
+        <text>ID:</text>
+        <input placeholder="请输入工号/学号" placeholder-style="width:126px;height:22px;font-size:16px;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(48,21,215,1);line-height:22px;" bindinput="ids"></input>
+      </view>
+      <view class='shuru'>
+        <text>邀请码:</text>
+        <input placeholder="请输入邀请码" placeholder-style="margin-left:15rpx;width:126px;height:22px;font-size:16px;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(48,21,215,1);line-height:22px;" bindinput="yqm"></input>
+      </view>
+    </view>
+    <button open-type="getUserInfo" class='btns' lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+      <text>确定</text>
+    </button>
+  </view>
+
+  <view class='l' style='top:{{loginTop}}px;display:{{tishiShow}}'>
+    <view class='ts'>
+      <view class='djs' style="display:{{djsShow}}">{{times}}s</view>
+      <view class='tg' style="display:{{tiaoguoShow}}" bindtap="qued">
+        <text>跳过</text>
+      </view>
+    </view>
+    <scroll-view scroll-y="true" class="tishi" style="height:{{tishiHeight}}px;">
+      <view class='titles'>请假(流程)说明、安全提示
+      </view>
+      <view class='content'>
+        <view class='txts'>1.学生在校学习期间，因故需要请假离校，应按照《中北大学普通本专科学生学籍管理规定》、《中北大学学生违纪处分办法》等制度规定，办理请销假手续。原则上，校内学生请假，需当面到辅导员处请假（特殊情况除外）；辅导员要面对面了解情况，审核请假事由，关心关爱学生，做好后续联络管理。凡请假，未经批准，不得擅自离校。请假学生应按照请假时限，按时返校，到辅导员处当面履行销假手续，并在智能小北上提交销假申请。</view>
+        <view class="txts"> 2.学生请假3天以内的，由辅导员审批；3天以上，1周以内的，由辅导员签署意见，学院主管领导审批；1周以上，2周以内的，由辅导员和学院主管领导签署意见后，学生处审批；2周以上的，由辅导员、学院主管领导和学生处签署意见后，上报主管学生工作的校领导审批。学生因病请假，辅导员视病情状况，报校医院审批。
+        </view>
+      </view>
+    </scroll-view>
+    <view class='ok' style="display:{{quedingShow}}" bindtap="qued">
+      <text>同意</text>
+    </view>
+  </view>
+
+
+
+  <view class='l' style='top:{{loginTop}}px;display:{{successshow}}'>
+    <view class='tis'>
+      <view class='qdcg'>签到成功</view>
+      <image class='cgimg' src='../../images/qdcg.png'>
+      </image>
+    </view>
+    <view class='ok'>
+      <text>确定</text>
+    </view>
+  </view>
+
+
+  <view class='l' style='top:{{loginTop}}px;display:{{failshow}}'>
+    <view class='tis'>
+      <view class='qdsb'>签到失败</view>
+      <image class='cgimg' src='../../images/qdsb.png'>
+      </image>
+    </view>
+    <view class='ok2'>
+      <text>重新签到</text>
+    </view>
+  </view>
+</view>

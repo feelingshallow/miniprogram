@@ -1,0 +1,103 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>消息中心</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<block wx:for="{{list}}">
+  <!--签到-->
+  <block wx:if="{{item.attr2==1}}">
+    <view class='content' style="margin-top:20px;">
+      <view class='title3'>签到反馈消息</view>
+      <view class='dier'>
+        <view>课程名称:
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">签到结果:</view>
+        <text>{{item.message}}</text>
+      </view>
+      <view class='dier'>
+        <view>未签到学生:
+          <text>{{item.reason}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>发起教室:
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <view class='disan'>
+        <view>发起签到人:
+          <text>{{item.apprPerson}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view>签到时间:{{item.apprDate}}</view>
+      </view>
+    </view>
+  </block>
+  <!--请假-->
+  <block wx:if="{{item.attr2==0}}">
+    <!--失败-->
+    <view wx:if="{{item.status==0}}" class='content' style="margin-top:20px;">
+      <view class='title'>请假反馈消息</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuNo}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假结果:</view>
+        <text>{{item.message}}</text>
+      </view>
+      <view class='disan'>
+        <view>审批人:
+          <text>{{item.apprPerson}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view>审批时间:{{item.apprDate}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{item.status==1}}" class='content' style="margin-top:20px;">
+      <view class='title2'>请假反馈消息</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuNo}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假结果:</view>
+        <text>{{item.message}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">未通过原因:</view>
+        <text>{{item.reason}}</text>
+      </view>
+      <view class='disan'>
+        <view>审批人:
+          <text>{{item.apprPerson}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view>审批时间:{{item.apprDate}}</view>
+      </view>
+    </view>
+  </block>
+</block>

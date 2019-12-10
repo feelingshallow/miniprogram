@@ -1,0 +1,105 @@
+<view class="header" style="">
+  <!--header-->
+  <view class="tui-header-box" style="background-image:url(http://q.douziok.com/paidui/87d18a56e0a74833b50f1414d5012db.png); background-size:100% 100%; height:398rpx;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>个人中心</text>
+      </view>
+      <image class="back" src="../../../images/left2.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<!-- 学生 -->
+<block wx:if="{{memberInfo.userType==0}}">
+  <view class='content' style='margin-top:{{height+24}}px;z-index:9999'>
+    <view class='message' bindtap="myMsg">
+      <image class='avatar' src="{{memberInfo.photo}}"></image>
+      <view class="deta">
+        <view class='names'>{{memberInfo.name}}</view>
+        <view class='ids'>ID:{{memberInfo.no}}</view>
+        <view class='add'>{{memberInfo.college.name}} {{memberInfo.majorName}} {{memberInfo.classs.no}}班</view>
+      </view>
+
+      <image class='rightbtn' src="../../../images/rbtn.png"></image>
+    </view>
+    <view class='tbtn line' bindtap="jhr">
+      <view class='left'>
+        <image src="../../../images/jhr.png"></image>
+        <text>监护人信息</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+    <view class='tbtn' bindtap="upload">
+      <view class='left'>
+        <image src="../../../images/ycz.png"></image>
+        <text>上传一寸照</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+  </view>
+  <view class='content2' style='margin-top:50rpx;'>
+    <view class='tbtn line' bindtap="history">
+      <view class='left'>
+        <image src="../../../images/lsjt.png"></image>
+        <text>历史假条</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+    <view class='tbtn line' bindtap="record">
+      <view class='left'>
+        <image src="../../../images/qdjl.png"></image>
+        <text>签到记录</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+    <view class='tbtn' bindtap="msgCenter">
+      <view class='left'>
+        <image src="../../../images/xxjl.png"></image>
+        <text>消息记录</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+  </view>
+</block>
+
+
+<!-- 老师 -->
+<block wx:if="{{memberInfo.userType==1}}">
+  <view class='content' style='margin-top:{{height+24}}px;z-index:9999'>
+    <view class='message' bindtap="myMsg">
+      <image class='avatar' src="{{memberInfo.photo}}"></image>
+      <view class="deta">
+        <view class='names'>{{memberInfo.name}}</view>
+        <view class='ids'>ID:{{memberInfo.no}}</view>
+        <view class='add'>{{memberInfo.colleges.name}}</view>
+      </view>
+
+      <image class='rightbtn' src="../../../images/rbtn.png"></image>
+    </view>
+    <view class='tbtn line' bindtap="history2">
+      <view class='left'>
+        <image src="../../../images/lsjt.png"></image>
+        <text>审核历史</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+     <view class='tbtn line' bindtap="record">
+      <view class='left'>
+        <image src="../../../images/qdjl.png"></image>
+        <text>签到记录</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+    <view class='tbtn' bindtap="xxjl">
+      <view class='left'>
+        <image src="../../../images/xxjl.png"></image>
+        <text>消息记录</text>
+      </view>
+      <image class='rightimg' src="../../../images/rbtn.png"></image>
+    </view>
+
+
+  </view>
+</block>

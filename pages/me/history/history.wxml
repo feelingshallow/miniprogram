@@ -1,0 +1,337 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>历史假条</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<view class='tab'>
+  <block wx:for="{{statusStr}}">
+    <view wx:if="{{status == index}}" class="li active" bindtap="changStatus" data-index="{{index}}">{{item}}</view>
+    <view wx:else class="li" bindtap="changStatus" data-index="{{index}}">{{item}}</view>
+  </block>
+</view>
+
+<block wx:for="{{list}}">
+  <block wx:if="{{item.status == 'N'}}">
+    <view class='content' style="margin-top:20px;">
+      <image class='chuo' src="../../../images/shz.png"></image>
+      <view class='title' style="color:rgba(118,142,255,1);">{{item.leaveInfo.createDateStr}}请假条</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuCode}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假日期:</view>
+        <text>{{item.leaveInfo.startTime1}} 至 {{item.leaveInfo.endTime1}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假理由:</view>
+        <text>{{item.reason}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">学生去向:</view>
+        <text>{{item.addrDetails}}</text>
+      </view>
+      <view class='dier'>
+        <view>请假类型:
+          <text>{{item.leaveType}}</text>
+        </view>
+      </view>
+      <view class='dier3'>
+        <view>审批人:
+        </view>
+        <block wx:for="{{item.leaveApprRecords}}">
+          <view class="sp">
+            <image class="avatar" src="{{item.teacher.photo}}"></image>
+            <view class="mid">
+              <text class="teacher">{{item.teacher.name}}</text>
+              <text>{{item.teacher.phone}}</text>
+            </view>
+            <!--审核中-->
+            <view wx:if="{{item.apprStatus=='N'}}" class="right">
+              <text class="time"></text>
+              <view class="ytg" style="background-color:#A4C9FF;">审核中</view>
+            </view>
+            <!--审核通过-->
+            <view wx:if="{{item.apprStatus=='A'}}" class="right">
+              <text class="time">时间:{{item.apprTimeStr}}</text>
+              <view class="ytg" style="opacity:0.2;">已通过</view>
+            </view>
+          </view>
+        </block>
+
+      </view>
+      <view class='dier2'>
+        <view>提交审批时间:
+          <text>{{item.createDate}}</text>
+        </view>
+      </view>
+    </view>
+
+  </block>
+
+  <block wx:if="{{item.status == 'A'}}">
+    <view class='content' style="margin-top:20px;">
+      <image class='chuo' src="../../../images/shtg.png"></image>
+      <view class='title'>{{item.leaveInfo.createDateStr}}请假条</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuCode}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假日期:</view>
+        <text>{{item.leaveInfo.startTime1}} 至 {{item.leaveInfo.endTime1}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假理由:</view>
+        <text>{{item.reason}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">学生去向:</view>
+        <text>{{item.addrDetails}}</text>
+      </view>
+      <view class='dier'>
+        <view>请假类型:
+          <text>{{item.leaveType}}</text>
+        </view>
+      </view>
+     <view class='dier'>
+        <view>审批人:
+        </view>
+        <view style="margin-left:10rpx;">
+          <block wx:for="{{item.leaveApprRecords}}">
+              {{item.apprLevelName}}
+          </block>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>提交审批时间:
+          <text>{{item.applyTime}}</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>审批通过时间:
+          <text>{{item.apprTime}}</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>下载假条时间:
+          <text>{{item.leaveInfo.downloadTime?item.leaveInfo.downloadTime:'未下载'}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view class="look" bindtap="look" data-id="{{item.id}}">查看假条</view>
+        <view class="xiaojia" bindtap="xiaojia" data-id="{{item.id}}">
+          <image src="../../../images/ljcx.png"></image>
+          立即销假
+        </view>
+        <view class="xiazai" bindtap="xiazai" data-id="{{item.id}}">
+          <image src="../../../images/ljxz.png"></image>
+          立即下载
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{item.status == 'R'}}">
+    <view class='content' style="margin-top:20px;">
+      <image class='chuo' src="../../../images/wtg.png"></image>
+      <view class='title' style="color:rgba(255,147,147,1);">{{item.leaveInfo.createDateStr}}请假条</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuCode}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假日期:</view>
+        <text>{{item.leaveInfo.startTime1}} 至 {{item.leaveInfo.endTime1}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假理由:</view>
+        <text>{{item.reason}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">学生去向:</view>
+        <text>{{item.addrDetails}}</text>
+      </view>
+      <view class='dier'>
+        <view>请假类型:
+          <text>{{item.leaveType}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>审批人:
+        </view>
+        <view style="margin-left:10rpx;">
+          <block wx:for="{{item.leaveApprRecords}}">
+            <block wx:if="{{item.apprStatus=='R'}}">
+              {{item.apprLevelName}}
+            </block>
+          </block>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>驳回人:
+        </view>
+        <view style="margin-left:10rpx;">
+          <block wx:for="{{item.leaveApprRecords}}">
+            <block wx:if="{{item.apprStatus=='R'}}">
+              {{item.apprLevelName}}
+            </block>
+          </block>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>驳回原因:
+        </view>
+        <view style="margin-left:10rpx;">
+          <block wx:for="{{item.leaveApprRecords}}">
+            <block wx:if="{{item.apprStatus=='R'}}">
+              {{item.apprReason}}
+            </block>
+          </block>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>提交审批时间:
+          <text>{{item.createDate}}</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>审批驳回时间:
+          <text>{{item.apprTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{item.status == 'E'}}">
+    <view class='content' style="margin-top:20px;">
+      <image class='chuo' src="../../../images/ysx.png"></image>
+      <view class='title' style="color:rgba(255,147,147,1);">{{item.leaveInfo.createDateStr}}请假条</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuCode}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假日期:</view>
+        <text>{{item.leaveInfo.startTime1}} 至 {{item.leaveInfo.endTime1}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假理由:</view>
+        <text>{{item.reason}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">学生去向:</view>
+        <text>{{item.addrDetails}}</text>
+      </view>
+      <view class='dier'>
+        <view>请假类型:
+          <text>{{item.leaveType}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>审批人:
+        </view>
+        <view style="margin-left:10rpx;">
+          <block wx:for="{{item.leaveApprRecords}}">
+            <block wx:if="{{item.apprStatus=='R'}}">
+              {{item.apprLevelName}}
+            </block>
+          </block>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>提交审批时间:
+          <text>{{item.createDate}}</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>审批失效时间:
+          <text>{{item.apprTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{item.status == 'C'}}">
+    <view class='content' style="margin-top:20px;">
+      <image class='chuo' src="../../../images/yxj.png"></image>
+      <view class='title'>{{item.leaveInfo.createDateStr}}请假条</view>
+      <view class='diyi'>
+        <view>学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view style='margin-left:110rpx;'>学号:
+          <text>{{item.stuCode}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假日期:</view>
+        <text>{{item.leaveInfo.startTime1}} 至 {{item.leaveInfo.endTime1}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">请假理由:</view>
+        <text>{{item.reason}}</text>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">学生去向:</view>
+        <text>{{item.addrDetails}}</text>
+      </view>
+      <view class='dier'>
+        <view>请假类型:
+          <text>病假</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>审批人:
+          <text>王老师</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>提交审批时间:
+          <text>{{item.createDate}}</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>审批通过时间:
+          <text>{{item.createDate}}</text>
+        </view>
+      </view>
+      <view class='dier2'>
+        <view>下载假条时间:
+          <text>{{item.createDate}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view class="look" bindtap="look" data-id="{{item.id}}">查看假条</view>
+      </view>
+    </view>
+  </block>
+
+</block>
+
+
+<image class="shu" src="../../../images/shu.png"></image>

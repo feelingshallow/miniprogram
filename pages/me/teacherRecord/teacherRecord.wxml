@@ -1,0 +1,50 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>签到记录</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+
+<view class='content' style="margin-top:20px;">
+  <view class='title'>签到反馈消息</view>
+  <view class='dier'>
+    <view>课程名称:
+      <text>12312实训</text>
+    </view>
+  </view>
+  <view class='dier2'>
+    <view style="white-space:nowrap;">签到结果:</view>
+    <view class="right">
+      <text>2019年1月1日 08:08 发起签到成功</text>
+      <text>123456班共48名学生，已到11名，未到<text class='wd'>11名</text></text>
+      <text>123456班共48名学生，已到11名，未到<text class='wd'>11名</text></text>
+    </view>
+  </view>
+  <view class='dier'>
+    <view>未签到学生:
+      <text>王王万</text>
+      <text>王王万</text>
+      <text>王王万</text>
+    </view>
+  </view>
+  <view class='dier'>
+    <view>发起教室:
+      <text>123123</text>
+    </view>
+  </view>
+  <view class='dier'>
+    <view>发起签到人:
+      <text>123123</text>
+    </view>
+  </view>
+  <view class='disi'>
+    <view>签到时间:2019年2月3日 08:03</view>
+  </view>
+</view>

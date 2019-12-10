@@ -1,0 +1,32 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>上传一寸照</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<view class="con">
+  <view class='content'>
+    <image mode="aspectFit" src="{{ yulanImg}}" bindtap="uploadImg"></image>
+  </view>
+  <view class='memberName'>{{memberInfo.name}}</view>
+  <view class="yaoqiu">拍照/上传要求</view>
+  <view class='yq'>
+    <view>1.免冠（不戴帽子）正面照片，照片上正常应该看到人的两耳轮廓和相当于男士的喉结处的地方。</view>
+    <view>2.照片尺寸可以为一寸或二寸，颜色统一使用白色，拍照时不得上唇膏等影响真实面貌的化妆色彩，包括头发的染色。</view>
+    <view>3.拍照时你拍照的背景统一使用白布，但你要穿有领子的衣服，不能化妆化得过浓，影响你的真实面貌，只可以涂淡淡的口红，要见耳朵、见到颈部，头上不戴任何装束。</view>
+    <view>4.标准证件照的严格要求：不戴首饰、嘴唇合拢、露出耳朵眉毛，穿有领深色衣服，不穿制式服装，不穿背带式服装，不戴美瞳，戴眼镜镜框不能遮挡眼球、不能反光、镜框不能太粗、镜片不能有色，不梳太高耸的发型。</view>
+  </view>
+</view>
+
+<view class='btn' bindtap="ok">确认提交</view>
+
+
+
+<view class='mb' style="display:{{mbShow}};z-index:999;"></view>

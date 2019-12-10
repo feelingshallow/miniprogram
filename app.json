@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/tongji/tongji",
+    "pages/me/center/center",
+    "pages/me/leave/leave",
+    "pages/me/historyByTeacher/historyByTeacher",
+    "pages/me/personMsg/personMsg",
+    "pages/me/parentMsg/parentMsg",
+    "pages/me/signDetail/signDetail",
+    "pages/me/record/record",
+    "pages/me/signDjs/signDjs",
+    "pages/me/sign/sign",
+    "pages/me/history/history",
+    "pages/me/timetable/timetable",
+    "pages/me/msgCenter/msgCenter",
+    "pages/me/upload/upload",
+    "pages/me/course/course",
+    "pages/news/newsList/newsList",
+    "pages/me/teacherRecord/teacherRecord",
+    "pages/news/newsDetail/newsDetail",
+    "pages/me/look/look"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "智能小北",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序签到" 
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

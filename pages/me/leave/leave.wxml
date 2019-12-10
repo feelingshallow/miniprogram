@@ -1,0 +1,325 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>智能请假</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+<view class="title">
+  <view class='cont'>个人信息填写</view>
+  <view class="xing">*</view>
+  <view class='tishi'>(
+    <text class="xing" style="margin-left:1rpx;">*</text>号为必填项)</view>
+</view>
+<view class="con">
+  <view class='content'>
+    <view class='xh'>
+      <view class='bigpoint'></view>学号：</view>
+    <view class="pc">{{memberInfo.no}}</view>
+  </view>
+
+  <view class="detail" style="z-index:10">
+    <view class="hang">
+      <view class='left'>
+        <view class='point'></view>
+        <view class='na'>姓名：</view>
+      </view>
+      <input class='xm' bindinput="xingming" value="{{xingming}}"></input>
+    </view>
+    <view class="hang1">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>学院：</view>
+        <!-- <input style="width:60%;" placeholder="" bindinput="xueyuan" value="{{xueyuan}}"></input> -->
+         <picker bindchange="bindPickerChange1" mode="selector" value="{{collegeIndex}}" range="{{collegeList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{collegeList[collegeIndex].name}}
+            </view>
+          </picker>
+      </view>
+      <view class='right1'>
+        <view class='point1'></view>
+        <view class='na1'>性别：</view>
+        <!-- <input style="width:60%;" bindinput="xingbie" value="{{xingbie}}"></input> -->
+        <picker bindchange="bindPickerChange" value="{{sexIndex}}" range="{{sexList}}" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{sexList[sexIndex]}}
+            </view>
+          </picker>
+      </view>
+    </view>
+    <view class="hang1">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>年级：</view>
+        <!-- <input style="width:60%;" bindinput="nianji" value="{{nianji}}"></input> -->
+        <picker bindchange="bindPickerChange0" value="{{njIndex}}" range="{{njList}}" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{njList[njIndex]}}
+            </view>
+          </picker>
+      </view>
+      <view class='right1'>
+        <view class='point1'></view>
+        <view class='na1'>专业：</view>
+        <!-- <input style="width:60%;" bindinput="zhuanye" value="{{zhuanye}}"></input> -->
+        <picker bindchange="bindPickerChange2" value="{{majorIndex}}" range="{{majorList}}" range-key="name" style="margin-left:20rpx;width:100%;">
+            <view class="picker">
+              {{majorList[majorIndex].name}}
+            </view>
+          </picker>
+      </view>
+    </view>
+    <view class="hang1">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>电话：</view>
+        <input style="width:60%;" bindinput="dianhua" value="{{dianhua}}"></input>
+      </view>
+      <view class='right1'>
+        <view class='point1'></view>
+        <view class='na1'>班级：</view>
+        <input style="width:60%;" bindinput="banji" value="{{banji}}"></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail" style="margin-top:-100rpx;z-index:9">
+    <view class="hang1" style="margin-top:15rpx;">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>监护人姓名：</view>
+        <input style="width:60%;" bindinput="jhrName1" value="{{data1.name}}"></input>
+      </view>
+      <view class='right1'>
+        <view class='point1'></view>
+        <view class='na1'>监护人关系：</view>
+        <input style="width:60%;" bindinput="jhrGuanxi1" value="{{data1.relationship}}"></input>
+      </view>
+    </view>
+    <view class="hang1" style="justify-content:flex-start;">
+      <view class='left1' style="width:80%">
+        <view class='point1'></view>
+        <view class='na1'>监护人联系方式：</view>
+        <input style="width:80%;" bindinput="jhrPhone1" value="{{data1.phone}}"></input>
+      </view>
+    </view>
+    <view class="hang1">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>监护人姓名：</view>
+        <input style="width:60%;" bindinput="jhrName2" value="{{data2.name}}"></input>
+      </view>
+      <view class='right1'>
+        <view class='point1'></view>
+        <view class='na1'>监护人关系：</view>
+        <input style="width:60%;" bindinput="jhrGuanxi2" value="{{data2.relationship}}"></input>
+      </view>
+    </view>
+    <view class="hang1" style="justify-content:flex-start;">
+      <view class='left1' style="width:80%">
+        <view class='point1'></view>
+        <view class='na1'>监护人联系方式：</view>
+        <input style="width:80%;" bindinput="jhrPhone2" value="{{data2.phone}}"></input>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="title">
+  <view class='cont'>请假时间</view>
+  <view class="xing">*</view>
+</view>
+
+
+<view class='starttime'>
+  <view class="tet">
+    <view class='dian'></view>
+    <view class="wz">起始时间:</view>
+  </view>
+  <picker-view indicator-class="pickback2" mask-class="pickback" style="width: 70%; height: 70px;padding-top:0.5px;border-radius:20px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column class="picker-text">
+      <view wx:for="{{years}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>年</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{months}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>月</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{days}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>日</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{hours}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>时</text>
+      </view>
+    </picker-view-column>
+
+  </picker-view>
+</view>
+<view class='starttime'>
+  <view class="tet">
+    <view class='dian'></view>
+    <view class="wz">结束时间:</view>
+  </view>
+  <picker-view indicator-class="pickback2" mask-class="pickback" style="width: 70%; height: 70px;padding-top:0.5px;border-radius:20px;" value="{{value1}}" bindchange="bindChange1">
+    <picker-view-column class="picker-text">
+      <view wx:for="{{years1}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>年</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{months1}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>月</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{days1}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>日</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{hours1}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>时</text>
+      </view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
+
+<view class="title">
+  <view class='cont'>请假类型</view>
+  <view class="xing">*</view>
+</view>
+<view class="type">
+  <block wx:for="{{qingjiaType}}">
+    <view wx:if="{{qingjiaIndex==index}}" class="typeName active" data-index="{{index}}">
+      <text>{{item}}</text>
+    </view>
+    <view wx:else class="typeName " bindtap="chooseType" data-index="{{index}}">
+      <text>{{item}}</text>
+    </view>
+  </block>
+</view>
+
+
+
+
+
+
+<view class="title">
+  <view class='cont'>学生去向</view>
+  <view class="xing">*</view>
+</view>
+
+<picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+  <view class='quxiang'>
+    <view class='bann'>
+      <view class='names'>
+        <view class='detail'>{{region[0]}}</view>
+        <view>
+          <image src="../../../images/xl.png"></image>
+        </view>
+      </view>省</view>
+    <view class='bann'>
+      <view class='names'>
+        <view class='detail'>{{region[1]}}</view>
+        <view>
+          <image src="../../../images/xl.png"></image>
+        </view>
+      </view>市</view>
+    <view class='bann'>
+      <view class='names'>
+        <view class='detail'>{{region[2]}}</view>
+        <view>
+          <image src="../../../images/xl.png"></image>
+        </view>
+      </view>区</view>
+  </view>
+</picker>
+
+<textarea class='tarea' placeholder="请填写详细地址" placeholder-class="placeh" bindinput="addrDetail"></textarea>
+
+
+
+<view class="title">
+  <view class='cont'>请假事由</view>
+  <view class="xing">*</view>
+</view>
+
+<textarea class='tarea' placeholder="请填写请假事由" placeholder-class="placeh" bindinput="qingjiaReason"></textarea>
+
+
+
+<view class="title">
+  <view class='cont'>辅助材料上传</view>
+ <view class='tishi'>(例如：病例、实习证明等)</view>
+</view>
+
+<view class='upload'>
+  <image mode="aspectFit" src="{{img1}}" bindtap="uploadImg1" bindlongpress="bindlongpressimg1"></image>
+  <image mode="aspectFit" src="{{img2}}" bindtap="uploadImg2" bindlongpress="bindlongpressimg2"></image>
+  <image mode="aspectFit" src="{{img3}}" bindtap="uploadImg3" bindlongpress="bindlongpressimg3"></image>
+</view>
+
+
+
+<view class="title">
+  <view class='cont'>审批人员</view>
+  <view class="xing">*</view>
+</view>
+
+<view class="sp">
+<block wx:for="{{shenpiList}}">
+  <view class='li'>
+    <image src="{{item.photo}}"></image>
+    <view>{{item.name}}</view>
+  </view>
+</block>
+
+</view>
+
+
+
+<cover-view class='tjsq' bindtap="tijiao">
+  <text>提交申请</text>
+</cover-view>
+
+  <view class='mb' style="display:{{mbShow}};z-index:999;"></view>
+ <view class='l' style='top:{{loginTop}}px;display:{{successshow}};z-index:9999;'>
+    <view class='tis'>
+      <view class='qdcg'>申请已提交</view>
+      <image class='cgimg' src='../../../images/qdcg.png'>
+      </image>
+    </view>
+    <view class='ok' bindtap="ok">
+      <text>确定</text>
+    </view>
+  </view>
+  <view class='l' style='top:{{loginTop}}px;display:{{failShow}};z-index:9999;'>
+    <view class='tis'>
+      <view class='qdsb'>申请提交失败</view>
+      <image class='cgimg' src='../../../images/qdsb.png'>
+      </image>
+    </view>
+    <view class='fail' bindtap="again">
+      <text>重新提交</text>
+    </view>
+  </view>

@@ -1,0 +1,27 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'></text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+
+<view class='content' style="margin-top:20px;">
+  <view class="title">{{details.title}}</view>
+  <view class="time">时间：{{details.publishDate}}</view>
+  <view class="author">{{details.author}}</view>
+  <view class="detail">
+    <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+  </view>
+  <view class='ydl'>阅读量：{{details.hits}}
+    <view class="zan">
+      <image src="../../../images/dianzan.png"></image>20</view>
+  </view>
+</view>

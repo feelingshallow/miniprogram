@@ -1,0 +1,175 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>发起签到</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+<view class="title">
+  <view class='cont'>确定信息</view>
+  <view class="xing">*</view>
+  <view class='tishi'>(
+    <text class="xing" style="margin-left:1rpx;">*</text>号为必填项)</view>
+</view>
+<view class="con">
+  <view class="detail" style="z-index:10">
+    <view class="hang">
+      <view class='left'>
+        <view class='point'></view>
+        <view class='na'>课程名称：</view>
+      </view>
+      <view class='xm'>{{entity.courseName}}</view>
+    </view>
+    <view class="hang1">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>任课老师：</view>
+        <view style="width:60%;">{{entity.teaName}}</view>
+      </view>
+    </view>
+    <view class="hang1">
+      <view class='left1'>
+        <view class='point1'></view>
+        <view class='na1'>上课时间：</view>
+        <view style="width:60%;white-space:nowrap;">{{entity.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="title">
+  <view class='cont'>签到时间</view>
+  <view class="xing">*</view>
+</view>
+
+
+<view class='starttime'>
+  <view class="tet">
+    <view class='dian'></view>
+    <view class="wz">起始时间:</view>
+  </view>
+  <picker-view indicator-class="pickback2" mask-class="pickback" style="width: 70%; height: 70px;padding-top:0.5px;border-radius:20px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column class="picker-text">
+      <view wx:for="{{hours}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>时</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{minutes}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>分</text>
+      </view>
+    </picker-view-column>
+
+  </picker-view>
+</view>
+<view class='starttime'>
+  <view class="tet">
+    <view class='dian'></view>
+    <view class="wz">结束时间:</view>
+  </view>
+  <picker-view indicator-class="pickback2" mask-class="pickback" style="width: 70%; height: 70px;padding-top:0.5px;border-radius:20px;" value="{{value1}}" bindchange="bindChange1">
+    <picker-view-column class="picker-text">
+      <view wx:for="{{hours1}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>时</text>
+      </view>
+    </picker-view-column>
+    <picker-view-column class="picker-text">
+      <view wx:for="{{minutes1}}" class='c'>
+        <text>{{item}}</text>
+        <text class='nam'>分</text>
+      </view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
+
+<view class="title">
+  <view class='cont'>签到教室</view>
+  <view class="xing">*</view>
+</view>
+
+<view class='quxiang'>
+  <picker mode="selector" style="width:40%;" bindchange="bindRegionChange1" value="{{schoolIndex}}" range="{{school}}">
+    <view class='bann'>
+      <view class='names'>
+        <view class='detail'>{{school[schoolIndex]}}</view>
+        <view>
+          <image src="../../../images/xl.png"></image>
+        </view>
+      </view>
+      <text>学校</text>
+    </view>
+  </picker>
+  <picker mode="selector" style="width:40%;" bindchange="bindRegionChange2" value="{{louIndex}}" range="{{lou}}" range-key="name">
+    <view class='bann'>
+      <view class='names'>
+        <view class='detail'>{{lou[louIndex].name}}</view>
+        <view>
+          <image src="../../../images/xl.png"></image>
+        </view>
+      </view>
+      <text>号楼</text>
+    </view>
+  </picker>
+</view>
+
+
+<view class='quxiang' style="">
+  <picker mode="selector" style="width:40%;" bindchange="bindRegionChange3" value="{{roomIndex}}" range="{{room}}" range-key="name">
+    <view class='bann'>
+      <view class='names'>
+        <view class='detail'>{{room[roomIndex].name}}</view>
+        <view>
+          <image src="../../../images/xl.png"></image>
+        </view>
+      </view>
+      <text>教室</text>
+    </view>
+  </picker>
+   <picker mode="selector" style="width:40%;" bindchange="bindRegionChange3" value="{{roomIndex}}" range="{{room}}">
+    <view class='bann'>
+     
+    </view>
+  </picker>
+</view>
+
+
+<view style="height:200rpx;"></view>
+
+
+<view class='tjsq' bindtap="tijiao">
+  <text>发起签到</text>
+</view>
+
+<view class='mb' style="display:{{mbShow}};z-index:999;"></view>
+<view class='l' style='top:{{loginTop}}px;display:{{successshow}};z-index:9999;'>
+  <view class='tis'>
+    <view class='qdcg'>申请已提交</view>
+    <image class='cgimg' src='../../../images/qdcg.png'>
+    </image>
+  </view>
+  <view class='ok' bindtap="ok">
+    <text>确定</text>
+  </view>
+</view>
+<view class='l' style='top:{{loginTop}}px;display:{{failShow}};z-index:9999;'>
+  <view class='tis'>
+    <view class='qdsb'>申请提交失败</view>
+    <image class='cgimg' src='../../../images/qdsb.png'>
+    </image>
+  </view>
+  <view class='fail' bindtap="again">
+    <text>重新提交</text>
+  </view>
+</view>
+
+
+<view class='mb' style="display:{{mbShow}};z-index:999;"></view>

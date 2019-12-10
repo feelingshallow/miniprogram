@@ -1,0 +1,96 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>签到记录</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<block wx:if="{{memberInfo.userType==1}}">
+  <block wx:for="{{list}}">
+    <view class='content' style="margin-top:20px;" bindtap="toDetail" data-id="{{item.id}}">
+      <view class='title3'>签到反馈消息</view>
+      <view class='dier'>
+        <view>课程名称:
+          <text>{{item.courseName}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">签到结果:</view>
+        <view>
+          <text>{{item.message}}</text>
+          <view wx:for="{{item.list}}">{{item[0]}}
+            <text style="color:red;margin-left:0;">{{item[1]}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">未签到学生:</view>
+        <view>
+          <text>{{item.lateStu}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>发起教室:
+          <text>{{item.classroom}}</text>
+        </view>
+      </view>
+      <view class='disan'>
+        <view>发起签到人:
+          <text>{{item.crPerson}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view>签到时间:{{item.signDate}}</view>
+      </view>
+    </view>
+  </block>
+
+</block>
+
+
+
+<!--学生-->
+<block wx:if="{{memberInfo.userType==0}}">
+  <block wx:for="{{list}}">
+    <view class='content' style="margin-top:20px;" bindtap="toDetail" data-id="{{item.id}}">
+      <view wx:if="{{item.status==0}}" class='title'>签到成功</view>
+      <view wx:if="{{item.status==1}}" class='title2'>签到失败</view>
+      <view class='dier'>
+        <view style="width: 45%;">学生:
+          <text>{{item.stuName}}</text>
+        </view>
+        <view>学号:
+          <text>{{item.stuNo}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view style="white-space:nowrap;">签到结果:</view>
+        <view>
+          <text>{{item.message}}</text>
+        </view>
+      </view>
+      <view class='dier'>
+        <view>发起教室:
+          <text>{{item.className}}</text>
+        </view>
+      </view>
+      <view class='disan'>
+        <view>发起签到人:
+          <text>{{item.apprPerson}}</text>
+        </view>
+      </view>
+      <view class='disi'>
+        <view>签到时间:{{item.apprDate}}</view>
+      </view>
+    </view>
+  </block>
+</block>
+
+
+<view style="height:50rpx;"></view>

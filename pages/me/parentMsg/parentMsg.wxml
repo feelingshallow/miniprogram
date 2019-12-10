@@ -1,0 +1,164 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>监护人信息</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+<block wx:if="{{editFlag1}}">
+  <view class='content' style="margin-top:20px;">
+    <view class='detail'>
+      <view class='classes flex'>
+        <view class='point'></view>
+        <view class='na'>监护人姓名:</view>
+        <input class='inpu' value="{{name1}}" bindinput="name1"></input>
+      </view>
+      <view class='zhoushu flex'>
+        <view class='point'></view>
+        <view class='na'>性别:</view>
+        <input class='inpu2' value="{{sex1}}" bindinput="sex1"></input>
+      </view>
+      <view class='jieshu flex'>
+        <view class='point'></view>
+        <view class='na'>监护人关系:</view>
+        <input class='inpu2' value="{{relationship1}}" bindinput="relationship1"></input>
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>工作单位:</view>
+        <input class='inpu2' value="{{job1}}" bindinput="job1"></input>
+        <!-- <view style="width:60%;margin-left:20rpx;overflow: hidden;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;text-overflow:ellipsis;">xxxx单单单单单单单单单单单</view> -->
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>联系方式:</view>
+        <input class='inpu2' value="{{phone1}}" bindinput="phone1"></input>
+      </view>
+    </view>
+    <view class='edit' bindtap="ok1" data-id="{{data1.id}}">
+      <image class='btn' src="../../../images/queding.png"></image>
+      <text>确定</text>
+    </view>
+  </view>
+</block>
+
+<block wx:else>
+  <view class='content' style="margin-top:20px;">
+    <view class='detail'>
+      <view class='classes flex'>
+        <view class='point'></view>
+        <view class='na'>监护人姓名:</view>
+        <view class='inpu'>{{name1}}</view>
+      </view>
+      <view class='zhoushu flex'>
+        <view class='point'></view>
+        <view class='na'>性别:</view>
+        <view class='inpu2'>{{sex1}}</view>
+      </view>
+      <view class='jieshu flex'>
+        <view class='point'></view>
+        <view class='na'>监护人关系:</view>
+        <view class='inpu2'>{{relationship1}}</view>
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>工作单位:</view>
+        <view class='inpu2'>{{job1}}</view>
+        <!-- <view style="width:60%;margin-left:20rpx;overflow: hidden;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;text-overflow:ellipsis;">xxxx单单单单单单单单单单单</view> -->
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>联系方式:</view>
+        <view class='inpu2'>{{phone1}}</view>
+      </view>
+    </view>
+    <view class='edit' bindtap="edit1">
+      <image class='btn' src="../../../images/bianji.png"></image>
+      <text>编辑</text>
+    </view>
+  </view>
+</block>
+
+
+<block wx:if="{{editFlag2}}">
+  <view class='content' style="margin-top:20px;">
+    <view class='detail'>
+      <view class='classes flex'>
+        <view class='point'></view>
+        <view class='na'>监护人姓名:</view>
+        <input class='inpu' value="{{name2}}" bindinput="name2"></input>
+      </view>
+      <view class='zhoushu flex'>
+        <view class='point'></view>
+        <view class='na'>性别:</view>
+        <input class='inpu2' value="{{sex2}}" bindinput="sex2"></input>
+      </view>
+      <view class='jieshu flex'>
+        <view class='point'></view>
+        <view class='na'>监护人关系:</view>
+        <input class='inpu2' value="{{relationship2}}" bindinput="relationship2"></input>
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>工作单位:</view>
+        <input class='inpu2' value="{{job2}}" bindinput="job2"></input>
+        <!-- <view style="width:60%;margin-left:20rpx;overflow: hidden;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;text-overflow:ellipsis;">xxxx单单单单单单单单单单单</view> -->
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>联系方式:</view>
+        <input class='inpu2' value="{{phone2}}" bindinput="phone2"></input>
+      </view>
+    </view>
+    <view class='edit' bindtap="ok2" data-id="{{data2.id}}">
+      <image class='btn' src="../../../images/queding.png"></image>
+      <text>确定</text>
+    </view>
+  </view>
+</block>
+
+<block wx:else>
+  <view class='content' style="margin-top:20px;">
+    <view class='detail'>
+      <view class='classes flex'>
+        <view class='point'></view>
+        <view class='na'>监护人姓名:</view>
+        <view class='inpu'>{{name2}}</view>
+      </view>
+      <view class='zhoushu flex'>
+        <view class='point'></view>
+        <view class='na'>性别:</view>
+        <view class='inpu2'>{{sex2}}</view>
+      </view>
+      <view class='jieshu flex'>
+        <view class='point'></view>
+        <view class='na'>监护人关系:</view>
+        <view class='inpu2'>{{relationship2}}</view>
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>工作单位:</view>
+        <view class='inpu2'>{{job2}}</view>
+        <!-- <view style="width:60%;margin-left:20rpx;overflow: hidden;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;text-overflow:ellipsis;">xxxx单单单单单单单单单单单</view> -->
+      </view>
+      <view class='teacher flex'>
+        <view class='point'></view>
+        <view class='na'>联系方式:</view>
+        <view class='inpu2'>{{phone2}}</view>
+      </view>
+    </view>
+    <view class='edit' bindtap="edit2">
+      <image class='btn' src="../../../images/bianji.png"></image>
+      <text>编辑</text>
+    </view>
+  </view>
+</block>
+
+
+<view class='mb' style="display:{{mbShow}};z-index:999;"></view>

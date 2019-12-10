@@ -1,0 +1,72 @@
+<view class="header" style="height:{{height}}px;">
+  <!--header-->
+  <view class="tui-header-box" style="height:{{height}}px;">
+    <view class="tui-header flex-row" style="padding-top:{{top}}px;">
+      <view class='bb' bindtap="back">
+        <text class='name'>签到倒计时</text>
+      </view>
+      <image class="back" src="../../../images/left1.png" bindtap="back"></image>
+    </view>
+  </view>
+  <!--header-->
+</view>
+
+
+<view class="signDetail">
+  <view class="shi">
+    <text>{{fen}}</text>分</view>
+  <view class="fen">
+    <text>{{miao}}</text>秒</view>
+</view>
+
+
+<view class='types'>
+  <text class="tit">未到人员</text>
+  <text class="num">{{list0.length}}/{{dataSize}}</text>
+</view>
+<block wx:for="{{list0}}">
+  <view class='content' style="margin-top:10px;">
+    <view class="title">
+      <view class="xuehao">学号：{{item.stuNo}}</view>
+      <view class="banji">班级：{{item.classNo}}</view>
+    </view>
+    <view class="name">{{item.stuName}}</view>
+    <view class="ima">
+      <image class="muban" mode="aspectFit" src="{{requestUrl + imgUrl2 + item.invImg}}"></image>
+      <image class="denghao" src="../../../images/denghao.png"></image>
+      <image class="zhanwei" mode="aspectFit" src="{{requestUrl +imgUrl2 + item.stuImg}}"></image>
+    </view>
+  </view>
+</block>
+
+<view class='types'>
+  <view class="tit">已到人员</view>
+  <view class="num2">{{list1.length}}/{{dataSize}}</view>
+</view>
+
+
+<block wx:for="{{list1}}">
+  <view class='content' style="margin-top:10px;">
+    <view class="title">
+      <view class="xuehao">学号：{{item.stuNo}}</view>
+      <view class="banji">班级：{{item.classNo}}</view>
+    </view>
+    <view class="name">{{item.stuName}}</view>
+    <view class="ima">
+      <image class="muban" mode="aspectFit" src="{{requestUrl + imgUrl2 + item.invImg}}"></image>
+      <image class="denghao" src="../../../images/denghao.png"></image>
+      <image class="zhanwei" mode="aspectFit" src="{{requestUrl +imgUrl2 + item.stuImg}}"></image>
+    </view>
+  </view>
+</block>
+
+<view style="height:200rpx;"></view>
+
+
+<view class='tjsq1' bindtap="jieshu" wx:if="{{flag==0}}">
+  <text>结束签到</text>
+</view>
+
+<view class='tjsq' bindtap="toIndex" wx:if="{{flag==1}}">
+  <text>回到首页</text>
+</view>
